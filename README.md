@@ -6,6 +6,7 @@ A React Powered Stopwatch App
 
 First install dependencies:
 
+
 ```sh
 npm install
 ```
