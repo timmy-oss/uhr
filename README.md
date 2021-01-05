@@ -1,6 +1,6 @@
 ﻿#Uhr
 
-A React Powered Clock App
+A React Powered Stopwatch App
 
 ## Building and running on localhost
 

@@ -32,13 +32,8 @@ const [ activeTab , setActiveTab ] = React.useState( 1 );
 
 const getClock = ()=>{
 
-if (  clockType == 1 )return <h1> Watch </h1>;
 
-if ( clockType == 2 )return <h1> Alarms </h1>;
-
-if ( clockType == 3 ) return <Stopwatches/>;
-
-if ( clockType == 4 ) return <h1> Settings </h1>;
+return <Stopwatches/>;
 
 
 };
@@ -66,8 +61,7 @@ return (
 
 <div className = 'w3-bar w3-block w3-center '>
 
-
-{ btnsData.map( e=> ( <Tab  {...e} key = { e.viewId }  onClick = { ()=>{setClockType(e.viewId); setActiveTab(e.viewId) } }  activeId = { activeTab } /> ) ) }
+<p className = 'w3-khaki w3-xlarge w3-padding' > Uhr </p>
 
 </div>
 

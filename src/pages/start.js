@@ -4,7 +4,7 @@ import {  Link ,} from 'react-router-dom';
 const StartPage = ( props )=>(
 
 
-<div className = 'w3-container'>
+<div className = 'w3-container w3-animate-fading'>
 
 
 <div className = 'w3-center'>
@@ -20,7 +20,7 @@ const StartPage = ( props )=>(
 
 <div className = 'w3-center'>
 
-<p style = {{ fontWeight : 'bold' }} > A React Powered Clock App </p>
+<p style = {{ fontWeight : 'bold' }} > A React Powered Stopwatch App </p>
 </div>
 
 
@@ -45,7 +45,27 @@ const StartPage = ( props )=>(
 
 </div>
 
+<div className = 'w3-small w3-center'>
 
+<small> 
+<span style = { {'text-transform' : 'uppercase'} } > Credits </span>
+<br/>
+Author : Timileyin Pelumi
+<br/>
+<a href =  'https://facebook.com/timmypelumy' > Facebook </a>
+<br/>
+<a href =  'https://twitter.com/timmypelumy' > Twitter </a>
+<br/>
+<a href = 'https://linkedin.com/in/timmypelumy' > LinkedIn </a>
+<br/>
+<a href = 'https://github.com/timmypelumy' > Github </a>
+
+<br/>
+
+ </small>
+
+
+</div>
 
 </div>
 

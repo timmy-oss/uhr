@@ -75,6 +75,14 @@ tickWatch();
 };
 
 
+//delete self
+const deleteSelf = ()=>{
+
+
+props.remove( props.id );
+
+};
+
 const resolveStamp = ( stamp )=>{
 
 
@@ -115,7 +123,7 @@ const watchText = humanize( resolveStamp( ticks ) );
 
 return (
 
-<div className = 'w3-container w3-center  w3-border w3-border-light w3-padding-32 '>
+<div className = 'w3-container w3-center  w3-animate-zoom w3-border w3-border-light w3-padding-32 '>
 
 <div className = 'w3-row-padding'>
 
@@ -124,9 +132,9 @@ return (
 </div>
 
 
-<div className = 'w3-col s3'>
+<div className = 'w3-col s3 w3-display-container'>
 
-<small class = 'w3-large w3-display-topright'> X </small>
+<small onClick = { deleteSelf } class = 'w3-large w3-card w3-circle w3-tag w3-display-topright'> x </small>
 
 </div>
 
@@ -138,12 +146,12 @@ return (
 
 <div className = 'w3-bar w3-block w3-center w3-stretch' >
 
-<button onClick = { startWatch } className = ' w3-button w3-padding  w3-border w3-round-large w3-bar-item'  > { !watchConfig.running && ticks!= 0 ? 'Continue' : watchConfig.running ? 'Running' : 'Start'  }  </button>
+<button onClick = { startWatch } className = { ' w3-button w3-padding  w3-border w3-round-large w3-bar-item '  + ( watchConfig.running ?'w3-disabled w3-opacity-max' : ' ' ) } > { !watchConfig.running && ticks!= 0 ? 'Continue' : watchConfig.running ? 'Running' : 'Start'  }  </button>
 
 
-<button onClick = { stopWatch } style = {{ marginLeft: '2rem' }}   className = ' w3-button w3-padding  w3-border w3-round-large w3-bar-item' > Stop </button>
+<button onClick = { stopWatch } style = {{ marginLeft: '2rem' }}   className = { ' w3-button w3-padding  w3-border w3-round-large w3-bar-item' + ( !watchConfig.running ?'w3-disabled w3-opacity-max' : ' ' ) } > Stop </button>
 
-<button onClick = { resetWatch }  style = {{ marginLeft: '2rem' }}  className = 'w3-button w3-padding w3-border w3-round-large  w3-bar-item' > Reset </button>
+<button onClick = { resetWatch }  style = {{ marginLeft: '2rem' }}  className = {'w3-button w3-padding w3-border w3-round-large  w3-bar-item' + ( ticks == 0 ?'w3-disabled w3-opacity-max' : ' ' ) }> Reset </button>
 </div>
 
 
@@ -160,12 +168,37 @@ return (
 
  const StopwatchList = ()=>{
 
-let watchListData = [
-{ id :1},
-{id : 2},
-{id : 3},
 
-];
+
+const [ watchListData ,setWatchListData ]  = React.useState( [] );
+
+//remove
+
+const remove = (id)=>{
+
+//alert(id);
+setWatchListData( watchListData.filter(  w => w.id != id ) );
+
+
+};
+//
+
+
+
+//AddNew
+const addNew = ()=>{
+
+let key = Math.random() * Math.random();
+
+
+let newState = { id :  key  };
+
+setWatchListData( watchListData.concat( newState ) );
+
+
+
+};//
+
 
 
 return (
@@ -174,7 +207,20 @@ return (
 
 <small style = {{ padding: '2px' }} className = ' w3-white w3-tiny w3-text-black w3-margin w3-border w3-border-white w3-round-xlarge ' > Stopwatch </small>
 
-{ watchListData.map( s=>( <Stopwatch key = {s.id} /> ) ) }
+{ watchListData.map( s=>( <Stopwatch remove = { remove }  {...s} key = {s.id} /> ) ) }
+
+
+<div className = 'w3-large w3-center w3-container'>
+
+
+{ watchListData.length == 0 ?  <p className = 'w3-xlarge w3-animate-bottom w3-cursive w3-padding-64 w3-center' > Add  a stopwatch </p> : null  }
+
+<br/>
+
+<i onClick = { addNew } className = 'fas fa-plus  w3-padding-64' > </i>
+
+</div>
+
 
 </div>
 
