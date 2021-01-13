@@ -45,26 +45,9 @@ const StartPage = ( props )=>(
 
 </div>
 
-<div className = 'w3-small w3-center'>
 
-<small> 
-<span style = { {'text-transform' : 'uppercase'} } > Credits </span>
-<br/>
-Author : Timileyin Pelumi
-<br/>
-<a href =  'https://facebook.com/timmypelumy' > Facebook </a>
-<br/>
-<a href =  'https://twitter.com/timmypelumy' > Twitter </a>
-<br/>
-<a href = 'https://linkedin.com/in/timmypelumy' > LinkedIn </a>
-<br/>
-<a href = 'https://github.com/timmypelumy' > Github </a>
-
-<br/>
-
- </small>
-
-
+<div className ='w3-center w3-container'>
+<Link className = 'w3-small w3-wide' to = '/credits/' > Credits </Link>
 </div>
 
 </div>
