@@ -6,3 +6,7 @@
 
 Authored by [ Timileyin Pelumi ]
 
+## Preview
+
+Preview the example live on [Netlify](http://uhr-app.netlify.app/):
+
